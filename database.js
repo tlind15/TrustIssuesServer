@@ -9,10 +9,6 @@ var db = new sqlite3.Database('/home/ubuntu/app/test3.db', (err) => {
 		});
 
 module.exports = {
-	testErrorsFunction: function() {
-		//test all the below functions and see what happens when you pass then bad data
-		console.log("Hello");
-	},
 
 	addUser: function(username, password, salt) {
 		let sql = `INSERT INTO User(username, password, salt) VALUES(?, ?, ?)`;
@@ -181,7 +177,6 @@ function processGetNewMessages(rows) {
 	if (typeof rows !== 'undefined') {
 		var promise = new Promise((resolve, reject) => {
 			rows.forEach((row) => {
-				console.log(row.message);
 				messages.push({"sender": row.sender, "message": row.message, "iv": row.iv, "tag": row.tag, "key": row.key, "time": row.timeSent});
 			});
 			resolve(messages);

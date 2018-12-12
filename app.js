@@ -17,7 +17,6 @@ app.use(express.static("./public"));
 app.listen(3000, () => {console.log("Server Connected")});
 
 app.post('/signup', (req, res) => {
-	console.log(req.body);
 	signup_controller.signupUser(req.body.username, req.body.password, database, jwt, res);
 });
 
@@ -26,7 +25,6 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/send-message', (req, res) => {
-	console.log(req.body);
   	send_message_controller.sendMessage(req.body, extractToken(req), database, jwt, res);
 });
 
@@ -46,7 +44,6 @@ app.post('/send-friend-request', (req, res) => {
 });
 
 app.post('/check-friend-requests', (req, res) => {
-	console.log(req.body);
 	jwt.verifyToken(extractToken(req), req.body.password).then((jwtReturn) => {
 		if(jwtReturn.verified) {
 			return database.getPendingRequests(req.body.username, req.body.timestamp);
