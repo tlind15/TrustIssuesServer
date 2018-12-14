@@ -11,3 +11,6 @@ After installing Node.js, run the server
 node app
 ```
 The server should be available at `http://localhost:3000/`
+
+## More detailed documentation
+[Check out the Wiki](https://github.com/tlind15/TrustIssuesServer/wiki)
